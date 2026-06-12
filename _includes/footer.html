@@ -64,16 +64,25 @@
 <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/thumbnail/lg-thumbnail.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/fullscreen/lg-fullscreen.min.js"></script>
 <script>
-  var galleryEl = document.getElementById('gallery');
-  if (galleryEl) {
+(function() {
+  var el = document.getElementById('gallery');
+  if (!el) return;
+
+  // Wait for all images to load before initializing
+  var imgs = el.querySelectorAll('img');
+  var loaded = 0;
+  var total = imgs.length;
+
+  function initGallery() {
     $("#gallery").justifiedGallery({
       rowHeight: 250,
       maxRowHeight: 350,
       margins: 8,
       captions: false,
-      lastRow: 'nojustify'
+      lastRow: 'nojustify',
+      waitThumbnailsLoad: true
     }).on('jg.complete', function() {
-      lightGallery(galleryEl, {
+      lightGallery(el, {
         plugins: [lgZoom, lgThumbnail, lgFullscreen],
         speed: 400,
         download: false,
@@ -81,4 +90,24 @@
       });
     });
   }
+
+  imgs.forEach(function(img) {
+    if (img.complete) {
+      loaded++;
+      if (loaded >= total) initGallery();
+    } else {
+      img.addEventListener('load', function() {
+        loaded++;
+        if (loaded >= total) initGallery();
+      });
+      img.addEventListener('error', function() {
+        loaded++;
+        if (loaded >= total) initGallery();
+      });
+    }
+  });
+
+  // Fallback: init after 5s even if images haven't loaded
+  setTimeout(function() { if (loaded < total) initGallery(); }, 5000);
+})();
 </script>
