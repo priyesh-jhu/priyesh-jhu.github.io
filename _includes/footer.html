@@ -55,5 +55,35 @@
       }
     });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.skill-card, .project-card, .pub-item, .hobby-card').forEach(el => observer.observe(el));
+  document.querySelectorAll('.skill-card, .project-card, .pub-item, .hobby-card, .gallery-item').forEach(el => observer.observe(el));
+
+  // Lightbox for gallery
+  (function() {
+    const items = document.querySelectorAll('.gallery-item');
+    if (!items.length) return;
+
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML = '<button class="lightbox-close" aria-label="Close">&times;</button><img src="" alt="">';
+    document.body.appendChild(lightbox);
+
+    const lbImg = lightbox.querySelector('img');
+    const lbClose = lightbox.querySelector('.lightbox-close');
+
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        lbImg.src = item.querySelector('img').src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    lbClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+  })();
 </script>
