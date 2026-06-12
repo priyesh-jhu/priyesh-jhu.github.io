@@ -2,7 +2,7 @@
 title: Genomics Pipeline
 description: Scalable Nextflow pipeline for whole-genome sequencing analysis with automated QC and variant calling.
 tags: [Nextflow, Python, Bioinformatics, AWS]
-github: https://github.com/priyeshagrawal
+github: https://github.com/priyesh-jhu
 ---
 
 A production-grade genomics pipeline built with Nextflow for processing whole-genome sequencing data at scale.

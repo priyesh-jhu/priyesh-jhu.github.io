@@ -2,7 +2,7 @@
 title: Biodata Analytics Platform
 description: Cloud-native platform for large-scale biological data analysis with interactive dashboards.
 tags: [Python, React, PostgreSQL, Docker]
-github: https://github.com/priyeshagrawal
+github: https://github.com/priyesh-jhu
 ---
 
 A full-stack platform for analyzing and visualizing large-scale biological datasets, built for research teams.

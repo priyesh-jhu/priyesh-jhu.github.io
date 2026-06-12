@@ -2,7 +2,7 @@
 title: ML Protein Structure Predictor
 description: Deep learning model for protein secondary structure prediction using transformer architectures.
 tags: [PyTorch, Deep Learning, Bioinformatics, Python]
-github: https://github.com/priyeshagrawal
+github: https://github.com/priyesh-jhu
 ---
 
 A transformer-based deep learning model for predicting protein secondary structure from amino acid sequences.
