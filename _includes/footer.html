@@ -55,35 +55,30 @@
       }
     });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.skill-card, .project-card, .pub-item, .hobby-card, .gallery-item').forEach(el => observer.observe(el));
-
-  // Lightbox for gallery
-  (function() {
-    const items = document.querySelectorAll('.gallery-item');
-    if (!items.length) return;
-
-    const lightbox = document.createElement('div');
-    lightbox.className = 'lightbox';
-    lightbox.innerHTML = '<button class="lightbox-close" aria-label="Close">&times;</button><img src="" alt="">';
-    document.body.appendChild(lightbox);
-
-    const lbImg = lightbox.querySelector('img');
-    const lbClose = lightbox.querySelector('.lightbox-close');
-
-    items.forEach(item => {
-      item.addEventListener('click', () => {
-        lbImg.src = item.querySelector('img').src;
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
+  document.querySelectorAll('.skill-card, .project-card, .pub-item, .hobby-card').forEach(el => observer.observe(el));
+</script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/justified-gallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/zoom/lg-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/thumbnail/lg-thumbnail.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/fullscreen/lg-fullscreen.min.js"></script>
+<script>
+  var galleryEl = document.getElementById('gallery');
+  if (galleryEl) {
+    $("#gallery").justifiedGallery({
+      rowHeight: 250,
+      maxRowHeight: 350,
+      margins: 8,
+      captions: false,
+      lastRow: 'nojustify'
+    }).on('jg.complete', function() {
+      lightGallery(galleryEl, {
+        plugins: [lgZoom, lgThumbnail, lgFullscreen],
+        speed: 400,
+        download: false,
+        mobileSettings: { controls: true, showCloseIcon: true }
       });
     });
-
-    function closeLightbox() {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    lbClose.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
-  })();
+  }
 </script>
