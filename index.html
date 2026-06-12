@@ -1,0 +1,71 @@
+---
+layout: default
+title: Home
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-label">Research Software Engineer</span>
+      <h1>Hi, I'm Priyesh Agrawal</h1>
+      <p>
+        Bioinformatics Scientist and Research Software Engineer building at the intersection
+        of computational biology, machine learning, and scalable software systems.
+      </p>
+      <div class="hero-actions">
+        <a href="{{ '/projects/' | relative_url }}" class="btn">View Projects</a>
+        <a href="{{ '/about/' | relative_url }}" class="btn btn-outline">About Me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <h2>Areas of Expertise</h2>
+      <p>Bridging biology, data science, and engineering</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>🧬 Bioinformatics</h3>
+        <p>Genomics pipelines, sequence analysis, structural biology, and computational methods for biological data.</p>
+      </div>
+      <div class="skill-card">
+        <h3>🤖 Machine Learning</h3>
+        <p>Deep learning, statistical modeling, NLP, and applying ML to solve complex scientific problems.</p>
+      </div>
+      <div class="skill-card">
+        <h3>⚙️ Software Engineering</h3>
+        <p>Scalable systems, cloud infrastructure, CI/CD pipelines, and production-grade research software.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Featured Projects</h2>
+      <p>A selection of recent work</p>
+    </div>
+    <div class="projects-grid">
+      {% for project in site.projects limit:3 %}
+      <div class="project-card">
+        <div class="project-card-body">
+          <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+          <p>{{ project.description }}</p>
+          <div class="project-tags">
+            {% for tag in project.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="{{ '/projects/' | relative_url }}" class="btn btn-outline">View All Projects →</a>
+    </div>
+  </div>
+</section>

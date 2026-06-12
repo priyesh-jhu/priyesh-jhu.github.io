@@ -1,0 +1,46 @@
+title: Priyesh Agrawal
+description: Research Software Engineer | Bioinformatics Scientist | Machine Learning
+baseurl: ""
+url: "https://priyeshagrawal.github.io"
+author:
+  name: Priyesh Agrawal
+  title: Research Software Engineer & Bioinformatics Scientist
+  email: ""
+  bio: >-
+    Research Software Engineer and Bioinformatics Scientist with expertise in
+    machine learning, computational biology, and scalable software systems.
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+
+# Exclude
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"

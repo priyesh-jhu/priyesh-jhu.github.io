@@ -1,0 +1,29 @@
+---
+layout: default
+title: Projects
+permalink: /projects/
+---
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h1>Projects</h1>
+      <p>Research software, tools, and open-source contributions</p>
+    </div>
+    <div class="projects-grid">
+      {% for project in site.projects %}
+      <div class="project-card">
+        <div class="project-card-body">
+          <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+          <p>{{ project.description }}</p>
+          <div class="project-tags">
+            {% for tag in project.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
