@@ -645,6 +645,17 @@ img { max-width: 100%; height: auto; }
   margin-top: 0.4rem;
   font-weight: 500;
 }
+.pub-section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--color-accent);
+  display: inline-block;
+}
+.pub-section-title:first-child { margin-top: 0; }
 
 /* ===== About Page ===== */
 .about-content {
