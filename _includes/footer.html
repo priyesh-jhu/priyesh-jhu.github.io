@@ -46,16 +46,6 @@
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 20);
   });
-
-  // Animate elements on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate-in');
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.skill-card, .project-card, .pub-item, .hobby-card').forEach(el => observer.observe(el));
 </script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/justified-gallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>

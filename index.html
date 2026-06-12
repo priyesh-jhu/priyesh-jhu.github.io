@@ -4,40 +4,45 @@ title: Home
 ---
 
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div id="tsparticles"></div>
   <div class="container">
     <div class="hero-layout">
     <div class="hero-content">
       <div class="hero-badge">
         <span class="badge-dot"></span>
-        Available for collaborations
+        Open to collaborations
       </div>
-      <h1>Research Software Engineer<br><span class="text-gradient">&amp; Bioinformatics Scientist</span></h1>
+      <h1>Priyesh Agrawal<br><span class="text-gradient" id="typed-output"></span></h1>
+      <p class="terminal-line">
+        <span class="prompt">$</span> <span class="cmd">whoami</span> <span class="flag">--verbose</span>
+      </p>
       <p>
-        Building at the intersection of computational biology, machine learning,
-        and scalable software systems. Turning complex biological data into actionable insights.
+        Scientist by training. Engineer by obsession. I build AI systems,
+        crack biological code, and ship production software — then go
+        chase sunsets with a camera.
       </p>
       <div class="hero-actions">
         <a href="{{ '/projects/' | relative_url }}" class="btn btn-primary">
           View Projects
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="{{ '/about/' | relative_url }}" class="btn btn-ghost">About Me</a>
+        <a href="{{ '/publications/' | relative_url }}" class="btn btn-ghost">Publications</a>
+        <a href="{{ '/hobbies/' | relative_url }}" class="btn btn-ghost">Life Outside Code</a>
       </div>
       <div class="hero-stats">
         <div class="stat">
-          <span class="stat-value">ML</span>
-          <span class="stat-label">Machine Learning</span>
+          <span class="stat-value">9+</span>
+          <span class="stat-label">Publications</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
-          <span class="stat-value">Bio</span>
-          <span class="stat-label">Bioinformatics</span>
+          <span class="stat-value">360+</span>
+          <span class="stat-label">Citations</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
-          <span class="stat-value">SWE</span>
-          <span class="stat-label">Software Engineering</span>
+          <span class="stat-value">2</span>
+          <span class="stat-label">Patents</span>
         </div>
       </div>
     </div>
@@ -50,28 +55,82 @@ title: Home
   </div>
 </section>
 
+<script>
+// Particles
+tsParticles.load("tsparticles", {
+  particles: {
+    number: { value: 60, density: { enable: true, area: 900 } },
+    color: { value: ["#818cf8", "#6366f1", "#34d399"] },
+    shape: { type: "circle" },
+    opacity: { value: 0.3, random: { enable: true, minimumValue: 0.1 } },
+    size: { value: 2, random: { enable: true, minimumValue: 0.5 } },
+    links: {
+      enable: true,
+      distance: 150,
+      color: "#818cf8",
+      opacity: 0.08,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 0.6,
+      direction: "none",
+      random: true,
+      straight: false,
+      outModes: "out"
+    }
+  },
+  interactivity: {
+    events: {
+      onHover: { enable: true, mode: "grab" },
+      resize: true
+    },
+    modes: {
+      grab: { distance: 140, links: { opacity: 0.2 } }
+    }
+  },
+  detectRetina: true
+});
+
+// Typed.js
+new Typed('#typed-output', {
+  strings: [
+    'Research Software Engineer',
+    'AI &amp; ML Architect',
+    'Bioinformatics Scientist',
+    'Full-Stack Builder',
+    'Photography Enthusiast'
+  ],
+  typeSpeed: 50,
+  backSpeed: 30,
+  backDelay: 2000,
+  loop: true,
+  smartBackspace: true
+});
+</script>
+
 <section class="section section-alt">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">What I Do</span>
-      <h2>Areas of Expertise</h2>
+      <span class="section-label">// expertise</span>
+      <h2>What I Build</h2>
     </div>
     <div class="skills-grid">
-      <div class="skill-card">
+      <div class="skill-card" data-aos="fade-up">
         <div class="skill-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         </div>
         <h3>Bioinformatics</h3>
         <p>Genomics pipelines, sequence analysis, structural biology, and computational methods for biological data.</p>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
         <div class="skill-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
         </div>
         <h3>Machine Learning</h3>
         <p>Deep learning, statistical modeling, NLP, and applying ML to solve complex scientific problems.</p>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
         <div class="skill-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
         </div>
@@ -85,12 +144,12 @@ title: Home
 <section class="section">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">Portfolio</span>
+      <span class="section-label">// projects</span>
       <h2>Featured Projects</h2>
     </div>
     <div class="projects-grid">
       {% for project in site.projects limit:3 %}
-      <a href="{{ project.url | relative_url }}" class="project-card">
+      <a href="{{ project.url | relative_url }}" class="project-card" data-aos="fade-up" data-aos-delay="{{ forloop.index0 | times: 100 }}">
         <div class="project-card-header">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
         </div>
@@ -113,5 +172,4 @@ title: Home
       </a>
     </div>
   </div>
-</section>
 </section>
